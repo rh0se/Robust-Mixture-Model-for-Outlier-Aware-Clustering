@@ -30,16 +30,19 @@ Nighttime silica readings were corrected by subtracting a fixed offset to reduce
 ### 3. Model Architecture
 We extend the GMM formulation by adding a **uniform distribution component** for outliers. The data likelihood under the mixture model is given by:
 
-\[
-p(x) = \sum_{k=1}^{K} \pi_k \, N(x|\mu_k,\Sigma_k) + \pi_{\text{out}} \, U(x)
-\]
+$$
+p(x) = \sum_{k=1}^{K} \pi_k \, N\bigl(x \mid \mu_k, \Sigma_k\bigr) \;+\; \pi_{\mathrm{out}} \, U(x)
+$$
 
-where:
-- \( x \) is a data point  
-- \( \pi_k \) are the mixture weights for each Gaussian component  
-- \( N(x|\mu_k,\Sigma_k) \) is the Gaussian probability density  
-- \( \pi_{\text{out}} \) is the weight for the outlier component  
-- \( U(x) \) is the uniform distribution over the data space
+where:  
+- $x$ is a data point  
+- $pi_k$ are the mixture weights for each Gaussian component  
+- $N(x \mid \mu_k, \Sigma_k$ is the Gaussian probability density  
+- $pi_{\mathrm{out}}$ is the weight for the outlier component  
+- $U(x)$ is the uniform distribution over the data space
+
+
+
 
 Here, **p(x)** represents the **overall probability density of the point x under the entire mixture model**, i.e. the sum of the contributions from all components (Gaussians + uniform). It is used during the E-step of EM to normalize responsibilities.
 
