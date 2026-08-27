@@ -68,7 +68,6 @@ The proposed model was compared against:
 PCA was used to reduce dimensionality and visualize cluster separation.  
 The robust mixture model successfully isolated outliers into a separate component, unlike KMeans and standard GMM.
 
-*(Insert PCA visualization figure here)*
 
 ---
 
